@@ -26,7 +26,7 @@ REM Multithread for ROBOCOPY
     Set MTNB=8
 
 REM Don't change X, don't touch, just look.
-    set "x=0"
+    set x=0
 
 echo ===============================
 echo = SCRIPT MADE BY orugari      =
