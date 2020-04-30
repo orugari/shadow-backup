@@ -4,7 +4,7 @@ REM Shadow Copy Disk, without \
 	Set "VSV=D:"
 
 REM Folders to backup from VSV disk. To backup all disk, just write \
-	Set "DIRSOURCE[0]=\mimportant_data\"
+	Set "DIRSOURCE[0]=\important_data\"
 	Set "DIRSOURCE[1]=\pictures_of_my_cat\"
 
 REM Target folder
