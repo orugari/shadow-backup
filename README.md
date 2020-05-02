@@ -27,7 +27,7 @@ Very simple, put the file anywhere and configure variables, for example in C:\ a
  <ul><li>Set "DELBCK=TRUE" Will delete Shadow Copy and shortcut</li></ul>
  
  <b>NBRBACKUP</b>: Numbers of backup to keep. It will create folders 1, 2, 3, 4,.. in the target directories where 1 is the newest.
- <ul><li>Set "NBRBACKUP=3" It will keep 3 folders of backup</li></ul>
+ <ul><li>Set "NBRBACKUP=3" Will keep 3 backups</li></ul>
  
  
  <b>MTNB</b>: Numbers of robocopy's multithread.
