@@ -26,7 +26,7 @@ Very simple, put the file anywhere and configure variables, for example in C:\ a
  <b>DELBCK</b>: Say if the Shadow Ccopy and the shortcut must be deleted at the end. TRUE or FALSE.
  <ul><li>Set "DELBCK=TRUE" Will delete Shadow Copy and shortcut</li></ul>
  
- <b>NBRBACKUP</b>: Numbers of backup to keep. It will create folders 1, 2, 3, 4,.. in the target directories where 1 is the newest.
+ <b>NBRBACKUP</b>: Numbers of backup to keep. It will create folders 1, 2, 3, 4,.. in the target directory where 1 is the newest backup.
  <ul><li>Set "NBRBACKUP=3" Will keep 3 backups</li></ul>
  
  
