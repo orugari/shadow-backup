@@ -21,7 +21,7 @@ Very simple, put the file anywhere and configure variables, for example in C:\ a
  <ul><li>"Set ECT=*.jpg" To bakup only jpg files.</li><li>"Set ECT=*.*" To bakup all filess.</li></ul>
 
  <b>Shortc</b>: Shortcut name to access the Shadow copy.
- <ul><li>Set "Shortc=shadowcopy" In this example, access to the Shadow Copy will be C:\Shadowcopy</li></ul>
+ <ul><li>Set "Shortc=shadowcopy" In this example, access to the Shadow Copy will be D:\Shadowcopy</li></ul>
  
  <b>DELBCK</b>: Say if the Shadow Ccopy and the shortcut must be deleted at the end. TRUE or FALSE.
  <ul><li>Set "DELBCK=TRUE" Will delete Shadow Copy and shortcut</li></ul>
