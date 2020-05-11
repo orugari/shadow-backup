@@ -19,7 +19,7 @@ REM Shortcut name to access the Shadow Copy
 REM Delete or not the Shadow Copy
     Set "DELBCK=TRUE"
 
-REM Number of backup to keep. Will create folder 1, 2, 3, 4 ... (no 0 folder) newest is 1, oldest is 4
+REM Number of backup to keep. Will create folder 1, 2, 3, 4 ... newest is 1, oldest is 4
     Set NBRBACKUP=3
 
 REM Multithread for ROBOCOPY
@@ -29,7 +29,7 @@ REM Don't change X, don't touch, just look.
     set x=0
 
 echo ===============================
-echo = SCRIPT MADE BY orugari      =
+echo = MADE BY orugari             =
 echo = email: orugari@hotmail.com  =
 echo = http://orugari.fr           =
 echo =                             =
@@ -40,17 +40,18 @@ echo Creating Shadow volume....
 
 REM Moving to Hard drive
 %VSV%
+
 REM Creation of the shadow copy
 vssadmin create shadow /for=%VSV%
 
-REM Creation of the shortcut to access shadow volume
+REM Creation of the shortcut
 echo Shadow volume created... Making Shortcut.
 for /f "tokens=2 delims=?" %%I in ('vssadmin list shadows ^| find "GLOBALROOT"') do (
     call Set "target=\\?%%I\"
 )
 mklink /d %VSV%\%Shortc% %target%
 
-REM Oldest folder will be delete, then a new folder will be created.
+REM Delete old folder and create new one
 FOR /L %%i IN (%NBRBACKUP%,-1,1) DO (
     IF EXIST %DIRDEST%%%i (
         IF %DIRDEST%%%i == %DIRDEST%%NBRBACKUP% (
@@ -59,7 +60,7 @@ FOR /L %%i IN (%NBRBACKUP%,-1,1) DO (
             echo Folder %DIRDEST%%NBRBACKUP% has been deleted
             echo.
         ) ELSE (
-            REM Changin folder name to let newer folder to be created
+            REM Renaming folders
             call Set "curdir=%%i"
             call Set /a newdir=curdir+1
             rename "%DIRDEST%!curdir!" "!newdir!"
@@ -67,7 +68,7 @@ FOR /L %%i IN (%NBRBACKUP%,-1,1) DO (
             echo.
         )
     ) ELSE (
-        REM Creation of all backup folder
+        REM Create folder if not exist
         md "%DIRDEST%%%i"
         echo Folder %DIRDEST%%%i has been created
     )
@@ -97,7 +98,7 @@ IF defined DIRSOURCE[%x%] (
         ROBOCOPY %VSV%\%Shortc%\!tmpdir! %DIRDEST%1!tmpdir! %EXT% /S /E /MT:%MTNB%
 
     ) ELSE (
-        echo Warning, the folder !tmpdir! does not exist !
+        echo Warning, the folder !tmpdir! does not exist!
         REM GOTO:eof
     )
     set /a "x+=1"
